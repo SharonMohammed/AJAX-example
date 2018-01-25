@@ -6,7 +6,7 @@ $(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'https://learnwebcode.github.io/json-example/animals-1.json',
+        url: 'https://github.com/SharonMohammed/json-example/blob/master/js/JSON.json',
         success: function(orders){
             $.each(orders, function (i, order) {
                 $orders.append('<li>name: ' + order.name +', drink: ' + order.species + '</li>');
@@ -23,10 +23,11 @@ $(function () {
             drink: $drink.val()
         };
 
-        $.ajax({
-            type: 'POST',
-            url:
-        })
+        //$.ajax({
+        //    type: 'POST',
+        //    url: 'https://github.com/SharonMohammed/json-example/blob/master/js/JSON.json',
+        //    success:
+        //})
     }
 
     );
