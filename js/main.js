@@ -4,12 +4,16 @@ $(function () {
     var $name = $('#name');
     var $drink = $('#drink');
 
+    function addOrder(order) {
+        $orders.append('<li>name: ' + order.name + ', drink: ' + order.drink + '</li>');
+    }
+
     $.ajax({
         type: 'GET',
-        url: 'https://github.com/SharonMohammed/json-example/blob/master/js/JSON.json',
+        url: 'http://rest.learncode.academy/api/sharon/animals',
         success: function(orders){
             $.each(orders, function (i, order) {
-                $orders.append('<li>name: ' + order.name +', drink: ' + order.species + '</li>');
+                addOrder(order);
             });
         },
         error: function () {
@@ -23,11 +27,17 @@ $(function () {
             drink: $drink.val()
         };
 
-        //$.ajax({
-        //    type: 'POST',
-        //    url: 'https://github.com/SharonMohammed/json-example/blob/master/js/JSON.json',
-        //    success:
-        //})
+        $.ajax({
+            type: 'POST',
+            url: 'http://rest.learncode.academy/api/sharon/animals',
+            data: order,
+            success: function (newOrder) {
+                addOrder(newOrder);
+            },
+            error: function () {
+                alert('error saving order');
+            }
+        })
     }
 
     );
