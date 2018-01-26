@@ -4,8 +4,15 @@ $(function () {
     var $name = $('#name');
     var $drink = $('#drink');
 
+    var orderTemplate = "" + 
+    "<li>" + 
+    "<p><strong> Name:</strong> {{name}}</p>" + 
+    "<p><strong> Drink:</strong> {{drink}}</p>" + 
+    "<button data-id='{{id}}' class='remove'>Delete</button>" + 
+    "</li>";
+
     function addOrder(order) {
-        $orders.append('<li>name: ' + order.name + ', drink: ' + order.drink + '</li>');
+        $orders.append(Mustache.render(orderTemplate, order));
     }
 
     $.ajax({
@@ -37,8 +44,25 @@ $(function () {
             error: function () {
                 alert('error saving order');
             }
-        })
-    }
+        });
+    });
 
-    );
+    $orders.delegate('.remove', 'click', function () {
+
+        var $li = $(this).closest('li');
+
+        $.ajax({
+            type: 'DELETE',
+            url: 'http://rest.learncode.academy/api/sharon/animals/' + $(this).attr('data-id'),
+            success: function () {
+                console.log('item deleted')
+                $li.fadeOut(300, function() {
+                    $(this).remove();
+                })
+            },
+            error: function () {
+                console.log('nothing deleted')
+        }
+        });
+    });
 });
