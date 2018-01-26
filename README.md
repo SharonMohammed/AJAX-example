@@ -1,1 +1,1 @@
-# json-example
+# AJAX-example
