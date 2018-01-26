@@ -1,9 +1,31 @@
-﻿li{
-    
-    background: #beb0b0;
-    border-radius: 5px;
-    list-style: none;
-    padding: 0px 10px 0px 10px;
-    width: 200px;
+﻿body {
+    padding: 50px;
+    font: 14px "Lucia Grande", Helvetica, Arial, sans-serif;
+}
 
+a{
+    color: #00B7FF;
+}
+
+ul{
+    padding: 0px;
+}
+
+ul li {
+    list-style: none;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+ul li .edit {
+    display: none;
+}
+
+ul li.edit .edit {
+    display: initial;
+}
+
+ul li.edit .noedit {
+    display: none;
 }

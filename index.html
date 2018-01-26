@@ -12,6 +12,25 @@
     <h2>Drink Orders</h2>
     <ul id="orders"></ul>
 
+    <template id="order-template">
+        <li data-id="{{id}}">
+            <p>
+                <strong> Name:</strong>
+                <span class="noedit name">{{name}}</span>
+                <input class="edit name"/>
+            </p>
+            <p>
+                <strong> Drink:</strong>
+                <span class="noedit drink">{{drink}}</span>
+                <input class="edit drink" />
+            </p>
+            <button data-id='{{id}}' class='remove'>Delete</button>
+            <button class="editOrder noedit">Edit</button>
+            <button class="saveEdit edit">Save</button>
+            <button class="cancelEdit edit">Cancel</button>
+        </li>
+    </template>
+
     <h4>Add a Drink Order</h4>
     <p>name: <input type="text" id="name" /></p>
     <p>drink: <input type="text" id="drink" /></p>
